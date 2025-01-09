@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile - SkillBridge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mint-green: rgba(196, 243, 153, 0.77);
+            --black: #1E1E1E;
+            --background: #FFFFFF;
+            --page-padding: 8%;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--background);
+            min-height: 100vh;
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .navbar {
+            position: fixed;
+            top: 8%;
+            left: var(--page-padding);
+            right: var(--page-padding);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: transparent;
+        }
+        .why-button {
+            width: min(227px, 20%);
+            height: 67px;
+            background: #1E1E1E;
+            border: 1px solid #2C2C2C;
+            border-radius: 38px;
+            color: #F5F5F5;
+            font-size: min(24px, 1.5vw);
+            line-height: 32px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .why-button:hover {
+            transform: translateY(-2px);
+        }
+        .logo {
+            width: min(257.5px, 20%);
+            height: auto;
+            object-fit: contain;
+        }
+        .about-section {
+            position: absolute;
+            top: 20%;
+            left: var(--page-padding);
+            right: var(--page-padding);
+            text-align: center;
+        }
+        .about-title {
+            font-size: min(48px, 4vw);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--black);
+        }
+        .about-text {
+            font-size: min(20px, 1.5vw);
+            line-height: 1.6;
+            color: var(--black);
+        }
+        .profile-container {
+            position: absolute;
+            top: 35%;
+            left: var(--page-padding);
+            right: var(--page-padding);
+        }
+        .profile-title {
+            font-size: min(48px, 4vw);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .profile-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .info-item {
+            background: var(--mint-green);
+            padding: 24px;
+            border-radius: 12px;
+        }
+        .info-label {
+            font-size: min(24px, 1.5vw);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .info-value {
+            font-size: min(20px, 1.2vw);
+        }
+        .next-button {
+            position: fixed;
+            bottom: 8%;
+            right: var(--page-padding);
+            width: min(211px, 20%);
+            height: 52px;
+            background: #1E1E1E;
+            border: 1px solid #2C2C2C;
+            border-radius: 29px;
+            color: #F5F5F5;
+            font-size: min(24px, 1.5vw);
+            line-height: 32px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 1;
+            transition: transform 0.3s ease;
+        }
+        .next-button:hover {
+            background: var(--mint-green);
+            color: #1E1E1E;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --page-padding: 5%;
+            }
+
+            .navbar {
+                top: 5%;
+            }
+
+            .about-section {
+                top: 15%;
+            }
+
+            .profile-container {
+                top: 50%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                top: 3%;
+            }
+
+            .why-button {
+                height: 50px;
+                font-size: 16px;
+            }
+
+            .about-title {
+                font-size: 6vw;
+            }
+
+            .about-text {
+                font-size: 4vw;
+            }
+
+            .profile-title {
+                font-size: 6vw;
+            }
+
+            .info-label {
+                font-size: 4vw;
+            }
+
+            .info-value {
+                font-size: 3.5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img class="logo" src="logo.png" alt="SkillBridge Logo">
+        <button class="why-button">Why SkillBridge?</button>
+    </nav>
+    
+    <div class="profile-container">
+        <h1 class="profile-title">Here's your profile</h1>
+        <div class="profile-info" id="profileInfo"></div>
+        <button class="next-button" onclick="goToOnboarding()">Continue →</button>
+    </div>
+
+    <script>
+        function goToOnboarding() {
+            window.location.href = 'student-onboarding.html';
+        }
+
+        // Simulating parsed profile data
+        const profileData = [
+            { label: 'Name', value: 'Jane Doe' },
+            { label: 'Major', value: 'Computer Science' },
+            { label: 'Interests', value: 'Machine Learning, Web Development' },
+            { label: 'Skills', value: 'Python, JavaScript, React' },
+        ];
+
+        const profileInfoContainer = document.getElementById('profileInfo');
+        profileData.forEach(item => {
+            const infoItem = document.createElement('div');
+            infoItem.classList.add('info-item');
+
+            const infoLabel = document.createElement('div');
+            infoLabel.classList.add('info-label');
+            infoLabel.textContent = item.label;
+
+            const infoValue = document.createElement('div');
+            infoValue.classList.add('info-value');
+            infoValue.textContent = item.value;
+
+            infoItem.appendChild(infoLabel);
+            infoItem.appendChild(infoValue);
+            profileInfoContainer.appendChild(infoItem);
+        });
+    </script>
+</body>
+</html>

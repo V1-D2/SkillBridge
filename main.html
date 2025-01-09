@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mint-green: rgba(196, 243, 153, 0.77);
+            --light-purple: rgba(227, 197, 253, 0.82);
+            --black: #1E1E1E;
+            --background: #FFFFFF;
+            --page-padding: 8%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            min-height: 100vh;
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 8%;
+            left: var(--page-padding);
+            right: var(--page-padding);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: transparent;
+        }
+
+        .why-button {
+            width: min(227px, 20%);
+            height: 67px;
+            background: #1E1E1E;
+            border: 1px solid #2C2C2C;
+            border-radius: 38px;
+            color: #F5F5F5;
+            font-size: min(24px, 1.5vw);
+            line-height: 32px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .why-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .main-title {
+            position: absolute;
+            left: var(--page-padding);
+            top: 18%;
+            font-size: min(78px, 5vw);
+            font-weight: 500;
+            line-height: 115%;
+            color: #000000;
+            width: 70%;
+        }
+
+        .subtitle {
+            position: absolute;
+            left: var(--page-padding);
+            top: 32%;
+            font-size: min(32px, 2.5vw);
+            font-weight: 400;
+            line-height: 115%;
+            color: #000000;
+            width: 40%;
+        }
+
+        .logo {
+            width: min(257.5px, 20%);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .cards-container {
+            position: absolute;
+            top: 45%;
+            left: var(--page-padding);
+            width: calc(100% - var(--page-padding) * 2);
+            display: flex;
+            justify-content: space-between;
+            gap: 2%;
+        }
+
+        .role-card {
+            width: 49%;
+            min-width: 300px;
+            height: 40vh;
+            min-height: 350px;
+            border-radius: 54px;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            padding: 3% 3% 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .illustration {
+            width: 45%;
+            max-width: 275px;
+            height: auto;
+            object-fit: contain;
+            margin-right: 5%;
+            position: relative;
+            top: -5%;
+        }
+
+        .student-card {
+            background: var(--mint-green);
+        }
+
+        .mentor-card {
+            background: var(--light-purple);
+        }
+
+        .role-title {
+            font-size: min(42px, 3vw);
+            font-weight: 500;
+            color: #000000;
+            position: absolute;
+            bottom: 8%;
+            left: 7%;
+        }
+
+        .get-started-btn {
+            position: absolute;
+            width: min(211px, 35%);
+            height: 52px;
+            bottom: 8%;
+            right: 7%;
+            background: #1E1E1E;
+            border: 1px solid #2C2C2C;
+            border-radius: 29px;
+            color: #F5F5F5;
+            font-size: min(24px, 1.5vw);
+            line-height: 32px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1024px) {
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+                top: 50%;
+                gap: 4vh;
+            }
+
+            .role-card {
+                width: 100%;
+                height: 35vh;
+            }
+
+            .subtitle {
+                width: 60%;
+            }
+
+            .illustration {
+                top: -2%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --page-padding: 5%;
+            }
+
+            .navbar {
+                top: 5%;
+            }
+
+            .main-title {
+                top: 15%;
+                width: 85%;
+            }
+
+            .subtitle {
+                top: 28%;
+                width: 80%;
+            }
+
+            .cards-container {
+                top: 42%;
+            }
+
+            .role-card {
+                height: 30vh;
+                min-height: 250px;
+                padding: 5% 5% 0;
+            }
+
+            .illustration {
+                width: 35%;
+                top: 0;
+            }
+
+            .role-title {
+                font-size: min(32px, 5vw);
+            }
+
+            .get-started-btn {
+                font-size: min(20px, 4vw);
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                top: 3%;
+            }
+
+            .why-button {
+                height: 50px;
+                font-size: 16px;
+            }
+
+            .main-title {
+                font-size: 7vw;
+            }
+
+            .subtitle {
+                font-size: 4vw;
+            }
+
+            .role-card {
+                min-height: 200px;
+            }
+
+            .illustration {
+                width: 40%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img class="logo" src="logo.png" alt="SkillBridge Logo">
+        <button class="why-button">Why SkillBridge?</button>
+    </nav>
+
+    <h1 class="main-title">Welcome to SkillBridge</h1>
+    <p class="subtitle">Shaping the future of mentorship one <strong>match</strong> at a time.</p>
+
+    <div class="cards-container">
+        <div class="role-card student-card">
+            <img class="illustration" src="student.png" alt="Student Illustration">
+            <div class="role-title">I'm a student</div>
+            <button class="get-started-btn" onclick="selectRole('student')">Get started →</button>
+        </div>
+
+        <div class="role-card mentor-card">
+            <img class="illustration" src="mentor.png" alt="Mentor Illustration">
+            <div class="role-title">I'm a mentor</div>
+            <button class="get-started-btn" onclick="selectRole('mentor')">Get started →</button>
+        </div>
+    </div>
+
+    <script>
+        function selectRole(role) {
+            const container = document.querySelector('.cards-container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+            container.style.transition = 'all 0.3s ease';
+            
+            setTimeout(() => {
+                if (role === 'student') {
+                    window.location.href = 'student-upload.html';
+                } else {
+                    window.location.href = 'mentor-onboarding.html';
+                }
+            }, 300);
+        }
+    </script>
+</body>
+</html>

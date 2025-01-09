@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading - SkillBridge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mint-green: rgba(196, 243, 153, 0.77);
+            --black: #1E1E1E;
+            --background: #FFFFFF;
+            --page-padding: 8%;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--background);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: var(--page-padding);
+        }
+        .navbar {
+            position: absolute;
+            top: var(--page-padding);
+            left: var(--page-padding);
+            right: var(--page-padding);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            width: 257.5px;
+            height: auto;
+        }
+        .loading-container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 100px;
+        }
+        .loading-title {
+            font-size: min(78px, 5vw);
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+        .loading-subtext {
+            font-size: min(32px, 2.5vw);
+            font-weight: 400;
+            line-height: 125%;
+            color: var(--black);
+            margin-bottom: 24px;
+        }
+        .loading-bar {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .loading-bar-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background: var(--mint-green);
+            border-radius: 12px;
+            animation: loading 5s linear forwards;
+        }
+
+        @keyframes loading {
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img class="logo" src="logo.png" alt="SkillBridge Logo">
+    </nav>
+    <div class="loading-container">
+        <p class="loading-title">Hold on...</p>
+        <p class="loading-subtext">Reading your file 📄</p>
+        <div class="loading-bar">
+            <div class="loading-bar-inner"></div>
+        </div>
+    </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = 'student.html';
+        }, 5000); // Simulates file parsing time
+    </script>
+</body>
+</html>

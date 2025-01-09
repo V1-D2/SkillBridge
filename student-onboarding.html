@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Skills - SkillBridge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mint-green: rgba(196, 243, 153, 0.77);
+            --black: #1E1E1E;
+            --background: #FFFFFF;
+            --page-padding: 8%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            min-height: 100vh;
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 8%;
+            left: var(--page-padding);
+            right: var(--page-padding);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: transparent;
+        }
+
+        .why-button {
+            width: min(227px, 20%);
+            height: 67px;
+            background: #1E1E1E;
+            border: 1px solid #2C2C2C;
+            border-radius: 38px;
+            color: #F5F5F5;
+            font-size: min(24px, 1.5vw);
+            line-height: 32px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .why-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .main-title {
+            position: absolute;
+            left: var(--page-padding);
+            top: 18%;
+            font-size: min(78px, 5vw);
+            font-weight: 500;
+            line-height: 115%;
+            color: #000000;
+            width: 70%;
+        }
+
+        .subtitle {
+            position: absolute;
+            left: var(--page-padding);
+            top: 32%;
+            font-size: min(32px, 2.5vw);
+            font-weight: 400;
+            line-height: 115%;
+            color: #000000;
+            width: 40%;
+        }
+
+        .logo {
+            width: min(257.5px, 20%);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .skills-container {
+            position: absolute;
+            top: 45%;
+            left: var(--page-padding);
+            width: calc(100% - var(--page-padding) * 2);
+            display: flex;
+            flex-wrap: wrap;
+            gap: min(24px, 2vw);
+            justify-content: flex-start;
+        }
+
+        .skill-button {
+            padding: min(16px, 1.5vh) min(32px, 2.5vw);
+            background: white;
+            border: 1px solid #2C2C2C;
+            border-radius: 38px;
+            font-size: min(24px, 1.5vw);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 0 1 auto;
+            white-space: nowrap;
+        }
+
+        .skill-button:hover {
+            background: var(--mint-green);
+            transform: translateY(-2px);
+        }
+
+        .skill-button.selected {
+            background: var(--mint-green);
+            transform: translateY(-2px);
+        }
+
+        .next-button {
+            position: fixed;
+            bottom: 8%;
+            right: var(--page-padding);
+            width: min(211px, 20%);
+            height: 52px;
+            background: #1E1E1E;
+            border: 1px solid #2C2C2C;
+            border-radius: 29px;
+            color: #F5F5F5;
+            font-size: min(24px, 1.5vw);
+            line-height: 32px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .next-button.active {
+            opacity: 1;
+            pointer-events: all;
+            background: var(--mint-green);
+            color: #1E1E1E;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1024px) {
+            .skills-container {
+                gap: 3vw;
+                justify-content: center;
+            }
+
+            .skill-button {
+                font-size: min(20px, 2vw);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --page-padding: 5%;
+            }
+
+            .navbar {
+                top: 5%;
+            }
+
+            .main-title {
+                top: 15%;
+                width: 85%;
+            }
+
+            .subtitle {
+                top: 28%;
+                width: 80%;
+            }
+
+            .skills-container {
+                top: 42%;
+                gap: 2vh;
+            }
+
+            .skill-button {
+                padding: 12px 24px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                top: 3%;
+            }
+
+            .why-button {
+                height: 50px;
+                font-size: 16px;
+            }
+
+            .main-title {
+                font-size: 7vw;
+            }
+
+            .subtitle {
+                font-size: 4vw;
+            }
+
+            .skills-container {
+                gap: 12px;
+            }
+
+            .skill-button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .next-button {
+                width: 40%;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img class="logo" src="logo.png" alt="SkillBridge Logo">
+        <button class="why-button">Why SkillBridge?</button>
+    </nav>
+
+    <h1 class="main-title">First things first,</h1>
+    <p class="subtitle">What skills would you like to learn and improve?</p>
+
+    <div class="skills-container">
+        <button class="skill-button" onclick="toggleSkill(this)">Python</button>
+        <button class="skill-button" onclick="toggleSkill(this)">Data Structures</button>
+        <button class="skill-button" onclick="toggleSkill(this)">Graphic Design</button>
+        <button class="skill-button" onclick="toggleSkill(this)">Web Development</button>
+        <button class="skill-button" onclick="toggleSkill(this)">Machine Learning</button>
+        <button class="skill-button" onclick="toggleSkill(this)">UI/UX Design</button>
+    </div>
+
+    <button id="nextButton" class="next-button" onclick="goToNextPage()">
+        Continue →
+    </button>
+
+    <script>
+        function toggleSkill(button) {
+            button.classList.toggle('selected');
+            updateNextButton();
+        }
+
+        function updateNextButton() {
+            const selectedSkills = document.querySelectorAll('.skill-button.selected');
+            const nextButton = document.getElementById('nextButton');
+            nextButton.classList.toggle('active', selectedSkills.length > 0);
+        }
+
+        function goToNextPage() {
+            if (document.querySelector('.skill-button.selected')) {
+                window.location.href = 'student-level.html';
+            }
+        }
+    </script>
+</body>
+</html>
