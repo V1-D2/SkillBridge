@@ -4,6 +4,7 @@ Having equal access to educational opportunities is something we can thank techn
 
 When we researched existing mentorship programs, we found that many are quite expensive and inaccessible. Even when professionals on platforms like LinkedIn want to help, they often just don’t know which service to use. This limitation inspired us to create SkillBridge: a platform that matches students with mentors based on their interests and the skills they wish to develop.
 
+DEMO VIDEO IS UPLOADED TO THIS REPOSITORIUM.
 
 
 
